@@ -1,0 +1,96 @@
+@import '@csstools/normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+/*-- desktop 1440px - styles --*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    /* dark theme */
+    --bg-body-color: hsl(235, 21%, 11%);
+    --bg-todo: hsl(235, 24%, 19%);
+    --text-color: hsl(236, 9%, 61%);
+    --text-color-2: hsl(235, 19%, 35%);
+    
+    /* others */
+    --todo-title: hsl(236, 33%, 92%);
+    --circle-border: hsl(236, 9%, 61%);
+    --placeholder: hsl(236, 9%, 61%);
+    --border-list-item: hsl(237, 14%, 26%);
+    --hover-check: linear-gradient(#57ddff, #c058f3);
+    --hover-interactive: hsl(0, 0%, 98%);
+    --interactive-activated: hsl(220, 98%, 61%);
+    --drag-drop-text: hsl(237, 14%, 26%);
+    --todo-hover: hsl(233, 14%, 35%);
+}
+
+/* default styles */
+body{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    max-height: max-content;
+    overflow-x: hidden;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    background-color: var(--bg-body-color);
+    transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+}
+
+body .bg-image{
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 250px;
+    background-image: url("/assets/images/bg-desktop-dark.jpg");
+    background-attachment: fixed;
+    z-index: -1;
+}
+
+.border-radius{ 
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+/* light styles */
+body.light{
+    --bg-body-color: hsl(0, 0%, 98%);
+    --bg-todo: #fff;
+    --text-color: hsl(234, 11%, 52%);
+    --border-list-item: hsl(236, 33%, 92%);
+    --text-color-2: hsl(234, 39%, 85%);
+    --hover-interactive: hsl(234, 11%, 52%);
+    --drag-drop-text: hsl(236, 9%, 61%);
+    --todo-hover: hsl(236, 33%, 92%);
+}
+
+body.light .bg-image{
+    background-image: url("/assets/images/bg-desktop-light.jpg");
+}
+
+@media screen and (max-width: 450px){
+    body .bg-image,
+    body.light .bg-image{
+        background-image: url("/assets/images/bg-mobile-dark.jpg");
+        background-repeat: no-repeat;
+        background-size: 100vw;
+    }
+
+    body.light .bg-image{
+        background-image: url("/assets/images/bg-mobile-light.jpg");
+    }
+}

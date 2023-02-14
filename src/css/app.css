@@ -1,0 +1,11 @@
+.app{
+    width: 450px;
+    max-height: 480px;
+}
+
+@media screen and (max-width: 450px){
+    .app{
+        width: 90vw;
+        max-height: 460px;
+    }
+}

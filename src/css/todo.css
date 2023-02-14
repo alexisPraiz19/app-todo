@@ -1,0 +1,264 @@
+/*  todo container */
+.todo-container{ 
+    position: relative; 
+    width: 100%;
+}
+
+.todo-container .todo-input{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    height: 45px;
+    margin-bottom: 20px;
+    padding: 0 20px;
+    background-color: var(--bg-todo);
+}
+
+.todo-input .label-add{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--circle-border);
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    cursor: pointer;
+}
+
+.todo-input #todo-add{
+    flex: 1;
+    height: 100%;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 15px;
+    color: var(--placeholder);
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.todo-container .todo-ul{
+    display: grid;
+    max-height: max-content;
+    overflow: hidden;
+    border-radius: 5px 5px 0 0;
+    -webkit-border-radius: 5px 5px 0 0;
+    -moz-border-radius: 5px 5px 0 0;
+    -ms-border-radius: 5px 5px 0 0;
+    -o-border-radius: 5px 5px 0 0;
+    box-shadow: 0px 60px 25px -5px rgba(0,0,0,.6);
+}
+
+.todo-ul .todo{
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 20px;
+    font-size: 17px;
+    color: var(--text-color);
+    background-color: var(--bg-todo);
+}
+
+.todo .border-gradient{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    transition: background .1s ease-in-out;
+    -webkit-transition: background .1s ease-in-out;
+    -moz-transition: background .1s ease-in-out;
+    -ms-transition: background .1s ease-in-out;
+    -o-transition: background .1s ease-in-out;
+}
+
+.todo .border-gradient label{
+    position: absolute;
+    top: 50%;
+    left: 1px;
+    width: 90%;
+    height: 90%;
+    background-color: var(--bg-todo);
+    border: 1px solid var(--circle-border);
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    cursor: pointer;
+}
+
+
+.border-gradient .input-check{ display: none; }
+
+.border-gradient .icon-check{
+    position: relative;
+    display: none;
+    width: 99%;
+    height: 99%;
+    left: 50%;
+    padding: 6px;
+    background: linear-gradient(#57ddff, #c058f3);
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+}
+
+.todo .todo-text{ 
+    cursor: pointer; 
+    width: 100%;
+    max-width: 90%;
+}
+
+.todo-ul .todo:not(:first-child){ border-top: 1px solid var(--border-list-item); }
+
+.todo .icon-cross{
+    position: absolute;
+    right: 20px;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity .1s ease;
+    -webkit-transition: opacity .1s ease;
+    -moz-transition: opacity .1s ease;
+    -ms-transition: opacity .1s ease;
+    -o-transition: opacity .1s ease;
+}
+
+
+.todo-container .interactive-options{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px 15px;
+    font-size: 14px;
+    color: var(--text-color-2);
+    background: var(--bg-todo);
+    border-top: 1px solid var(--border-list-item);
+    border-radius: 0 0 5px 5px;
+    -webkit-border-radius: 0 0 5px 5px;
+    -moz-border-radius: 0 0 5px 5px;
+    -ms-border-radius: 0 0 5px 5px;
+    -o-border-radius: 0 0 5px 5px;
+}
+
+.interactive-options .interactive-container{
+    display: flex;
+    gap: 10px;
+    margin-left: 15px;
+}
+
+.interactive-options .interactive{
+    font-family: "Josefin Sans";
+    font-weight: 700;
+    color: var(--text-color-2);
+    background-color: transparent;
+    border: none;
+}
+
+.interactive-options .clear-completed{
+    font-size: 13px;
+    font-weight: 400;
+}
+
+
+/* hover styles */
+.todo .border-gradient:hover{ background: var(--hover-check); }
+
+.todo .border-gradient:hover > label{ border: none; }
+
+.todo-ul .todo:hover > .icon-cross{ opacity: 1; }
+
+.interactive-options .interactive:hover{
+    color: var(--hover-interactive);
+    cursor: pointer;
+}
+
+/* javascript interaction */
+.todo .todo-text.todo-completed{
+    color: var(--todo-hover);
+    text-decoration-line: line-through;
+}
+
+.border-gradient .icon-check.checked{
+    display: block;
+    pointer-events: none;
+}
+
+.interactive-container .interactive.activated{
+    color: var(--interactive-activated);
+}
+
+.interactive-options .activated{
+    color: var(--interactive-activated);
+}
+
+@media screen and (max-width: 450px){
+    .todo .icon-cross{
+        opacity: 1;
+    }
+
+    .interactive-options .interactive-container{
+        position: absolute;
+        left: 0;
+        bottom: -80px;
+        justify-content: center;
+        gap: 15px;
+        width: 100%;
+        margin: 0;
+        padding: 20px 15px;
+        background-color: var(--bg-todo);
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+    }
+
+    .app .footer{
+        margin-top: 80px;
+    }
+
+    .light .interactive-options .interactive-container{
+        box-shadow: 0px 0px 11px -6px rgba(0,0,0,.6);
+    }
+}
+
+@media screen and (max-width: 380px){
+    .todo-ul .todo{
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 350px){
+    .todo .border-gradient{
+        width: 18px;
+        height: 16px;
+    }
+    
+    .todo-ul .todo{
+        font-size: 11px;
+        font-weight: 700;
+    }
+}
